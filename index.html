@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MNSCCTV</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- My Style -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+  <!-- Alpine Js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!--- App -->
+  <script src="src/app.js" async></script>
+
+</head>
+
+<body>
+  <!-- Navbar start -->
+  <nav class="navbar" x-data>
+    <a href="#" class="navbar-logo"><img src="img/MNS-LOGO.1png.png"></a>
+
+    <div class="navbar-nav">
+      <a href="#home">Laman utama</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#package">Kenapa Kami</a>
+      <a href="#products">Pakej</a>
+      <a href="#contact">Hubungi</a>
+    </div>
+
+    <div class="navbar-extra">
+      <a href="#" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <a href="#" id="shopping-cart-button">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span></a>
+
+      <a href="#" id="hamburger-menu"><i class="fa-solid fa-bars"></i></a>
+    </div>
+    
+    <!-- Search Form start -->
+    <div class="search-form">
+      <input type="search" id="search-box" placeholder="search here...">
+      <label for="search-box"><i data-feather="search"></i></label>
+    </div>
+    <!-- Search Form end -->
+
+    <!-- Shopping Cart start -->
+    <div class="shopping-cart">
+      <template x-for="(item, index) in $store.cart.items" x-keys="index">
+      <div class="cart-item">
+        <img :src="`img/products/${item.img}`" :alt="item.name">
+        <div class="item-detail">
+          <h3 x-text = "item.name"></h3>
+          <div class="item-price">
+            <span x-text="RM(item.price)"></span> &times;
+            <button id="remove" @click =$store.cart.remove(item.id)>&minus;</button>
+            <span x-text="item.quantity"></span>
+            <button id="add" @click="$store.cart.add(item)">&plus;</button>&equals;
+            <span x-text="RM (item.total)"></span>
+          </div>
+        </div>
+
+      </div>
+    </template>
+    <p x-show="!$store.cart.items.length">Your Cart is Empty</p>
+    <h4 x-show="$store.cart.items.length">Total Price: <span x-text = "RM($store.cart.total)"></span></h4>
+
+    <div class="form-container" x-show="$store.cart.items.length">
+      <form action="" id="checkoutForm">
+        <input type = "hidden" name="items" x-model ="JSON.stringify($store.cart.items)">
+        <input type = "hidden" name="total" x-model ="$store.cart.total">
+
+        <h5>Customer Detail</h5>
+
+        <label for ="name">
+          <span>Nama </span>
+          <input type="text" name="name" id="name">
+        </label>
+
+        <label for ="email">
+          <span>Email </span>
+          <input type="email" name="email" id="email">
+        </label>
+
+        <label for ="phone">
+          <span>No.Tel </span>
+          <input type="number" name="phone" id="phone" autocomplete="off">
+        </label>
+
+        <label for ="location">
+          <span>Lokasi</span>
+          <input type="text" name="location" id="location">
+        </label>
+
+<button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
+      </form>
+    </div>
+    </div>
+    <!-- Shopping Cart end -->
+  </nav>
+  <!-- Navbar end -->
+
+  <!-- Hero Section start -->
+  <section class="hero" id="home">  
+    <main class="content">
+        <h1> Keselamatan terjamin dengan <span>CCTV</span></h1>
+        <p>Rumah | Pejabat | Surau | Sekolah </p>
+        <p>Beroperasi disekitar Putrajaya dan Selangor</p>
+    <a href="#products" class="cta">Order now </a>
+    </main>
+</section>
+  <!-- Hero Section end -->
+
+  <!-- About Section start -->
+  <section id="about" class="about">
+    <h2>TENTANG<span> KAMI</span></h2>
+    <div class="row">
+        <div class="about-img">
+            <img src="img/mns logo.jpg"alt ="Tentang kami">
+        </div>
+        <div class="content">
+            <h1>MNS CCTV    
+            </h1>
+            <p>MNS CCTV merupakan syarikat yang berpengalaman dalam bidang pemasangan dan penyediaan sistem CCTV. Kami menawarkan produk CCTV berkualiti tinggi serta perkhidmatan pemasangan profesional untuk pelanggan dari pelbagai sektor. Syarikat kami juga menekankan keselamatan, kepuasan pelanggan, dan inovasi teknologi sebagai asas dalam setiap tindakan kami.    
+            </p>
+            <p>"Pilih MNS CCTV untuk solusi keamanan yang terpercaya dan cemerlang. Dengan fokus kepada kualiti, keselamatan, dan kepuasan pelanggan, kami komited untuk menyediakan sistem CCTV yang efektif dan inovatif, sesuai dengan keperluan anda. Hubungi kami hari ini untuk mendapatkan perlindungan yang tidak ternilai dari pakar dalam industri ini."
+            </p>
+            <p>Selain pengalaman mendalam dalam bidang pemasangan sistem CCTV, MNS CCTV juga memiliki keahlian yang kuat dalam kejuruteraan elektrik. Kami terampil dalam melakukan wiring untuk lampu, soket, dan komponen elektrikal lainnya. Dengan pengetahuan yang mendalam dan pengalaman yang luas, kami menawarkan layanan profesional dalam merancang dan mengimplementasikan sistem elektrikal yang efisien dan andal.
+              Kami mengutamakan keamanan dan kepatuhan standar dalam setiap pekerjaan yang kami lakukan. Dengan memahami kebutuhan unik setiap proyek, kami menyediakan solusi wiring yang tidak hanya berfungsi dengan baik tetapi juga dirancang untuk memberikan kenyamanan jangka panjang bagi pelanggan kami.
+              Komitmen kami terhadap kualitas dan kepuasan pelanggan menjadikan MNS CCTV sebagai pilihan yang tepat untuk kebutuhan elektrifikasi Anda. Hubungi kami sekarang untuk konsultasi lebih lanjut dan temukan bagaimana kami dapat membantu menjaga dan meningkatkan infrastruktur elektrikal Anda.
+              
+              </p>
+        </div>
+    </div>
+</section>
+  <!-- About Section end -->
+
+  <!-- why us start -->
+  <section id="package" class="pakej">
+    <h2>MENGAPA<span> KAMI</span></h2>
+    <div class="row">
+        <div class="kenapa">
+
+          <i class="fa-regular fa-handshake fa-2xl"></i>
+            <p>Kepuasan pelanggan menjadi keutamaan utama kami. Pasukan kami sentiasa bersedia membantu dan menjawab pertanyaan anda dengan mesra dan tepat pada masanya.</p>
+        </div>
+        <div class="kenapa">
+          <i class="fa-solid fa-screwdriver-wrench fa-2xl"></i>
+            <p>Pasukan kami mempunyai pengalaman yang luas dalam pemasangan CCTV, memastikan kerja dilakukan secara profesional dan mengikut standard yang ditetapkan.</p>
+        </div>
+        <div class="kenapa">
+          <i class="fa-solid fa-video fa-2xl"></i>
+            <p>Kami menawarkan produk CCTV berkualitas tinggi dan terpercaya untuk memastikan keamanan Anda terjaga dengan baik.</p>
+        </div>
+        <div class="kenapa">
+          <i class="fa-solid fa-mobile fa-2xl"></i>
+            <p>Kami sentiasa mengikuti perkembangan teknologi terbaru dalam industri ini, memastikan sistem CCTV yang dipasang adalah yang terkini dan berkesan.</p>
+        </div>
+        <div class="kenapa">
+          <i class="fa-regular fa-clock fa-2xl"></i>
+            <p>Pengawasan selama 24 jam adalah salah satu kelebihan utama layanan pemasangan CCTV kami. Kami menawarkan sistem yang aktif dan siap memantau setiap saat, memastikan keamanan Anda terjaga.</p>
+        </div>
+        <div class="kenapa">
+          <i class="fa-solid fa-certificate fa-2xl"></i>
+            <p>Syarikat kami telah memperoleh kelulusan yang sah dan berdaftar dalam bidang Kejuruteraan Elektrik dari pihak berkuasa yang berkaitan.</p>
+        </div>
+        <div class="kenapa">
+          <i class="fa-solid fa-city fa-2xl"></i>
+            <p>Dengan pengalaman yang luas dalam industri pemasangan CCTV, kami berkomitmen untuk menyediakan solusi yang profesional dan memenuhi standard tertinggi untuk keamanan Anda.</p>
+        </div>
+        <div class="kenapa">
+          <i class="fa-solid fa-microchip fa-2xl"></i>
+            <p>Kami mengutamakan inovasi dan keandalan dalam setiap produk dan layanan CCTV yang kami tawarkan, memastikan bahawa sistem yang dipasang tidak hanya efektif tetapi juga memberikan ketenangan pikiran kepada pelanggan kami.</p>
+        </div>
+    </div>
+</section>
+  <!-- Why us end -->
+
+  <!-- Products Section start -->
+  <section class="products" id="products" x-data="products">
+    <h2>PRODUK<span> YANG DITAWARKAN</span></h2>
+    <p>pesan sekarang untuk menempah waktu pemasangan</p>
+    <p>*50% deposit untuk pembayaran pendahuluan </p>
+<div class="row">
+      <template x-for="(item,index) in items" x-key="index">
+
+      <div class="product-card">
+        <div class="product-image">
+          <img :src="`img/products/${item.img}`" :alt="item.name">
+        </div>
+        <div class="product-content">
+          <h3 x-text ="item.name"></h3>
+            <template x-for="feature in item.features">
+              <h3 x-text="feature"></h3>
+              <p x-text="feature"></p>
+              <p x-text="feature"></p>
+              <p x-text="feature"></p>
+              <p x-text="feature"></p>
+              <p x-text="feature"></p>
+          </template>
+          <div class="product-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+          </div>
+          <div class="products-price"><P x-text= "RM(item.price)"></P>
+            <p class="previous-price"x-text= "RM(calculatePreviousPrice(item.price))"></P>
+            <a href="#" class="add-to-cart-btn" @click.prevent="$store.cart.add(item)">Add To Cart
+            </a>
+        </div>
+      </div>
+    </template>
+    </div>
+  </section>
+  <!-- Products Section end -->
+
+<!-- slider image Start -->
+<section id="slider" class="slider">
+  <div class="slider">
+    <div class="list">
+        <div class="item">
+            <img src="img/1.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/gambar2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/gambar3.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/gambar4.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="img/gambar5.jpg" alt="">
+        </div>
+    </div>
+    <div class="buttons">
+      <button id="prev"><i class="fa-solid fa-angle-left fa-xl"></i></button>
+      <button id="next"><i class="fa-solid fa-angle-right fa-xl"></i></button>
+    </div>
+    <ul class="dots">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</section>
+<!-- slider image End -->
+
+  <!-- Contact Section start -->
+  <section id="contact" class="contact">
+    <h2><span>Hubungi</span> Kami</h2>
+    <p>*hubungi kami di Aplikasi Whatsapp +6013-6839091
+    </p>
+
+    <div class="row">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127507.67660955104!2d101.61404121189763!3d2.9265300292222016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb625448e0b23%3A0x85165e8fa981af6c!2sPutrajaya!5e0!3m2!1sen!2smy!4v1694168263627!5m2!1sen!2smy"allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"class="map"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+
+          <form action="" id="hantarForm">
+            <div class="input-group">
+              <i class="fa-regular fa-user fa-xl"></i>
+              <input type="" placeholder="Nama" class="name">
+            </div>
+            <div class="input-group">
+              <i class="fa-regular fa-envelope fa-xl"></i>
+              <input type="text" placeholder="Email" class="email">
+            </div>
+            <div class="input-group">
+              <i class="fa-solid fa-phone fa-xl"></i>
+              <input type="text" placeholder="No. Tel" class="phone">
+            </div>
+            <div class="input-group">
+              <i class="fa-regular fa-message fa-xl"></i>
+              <textarea type="text" placeholder="Message" class="message"></textarea>
+            </div>
+            <button type="button" onclick="sendWhatsapp();" class="btn disabled" id="hantar-button">Hantar</button>
+          </form>
+</section>
+  <!-- Contact Section end -->
+
+  <!-- Footer start -->
+  <footer>
+    <div class="socials">
+      <a href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+      <a href="#"><i class="fa-brands fa-tiktok fa-2xl"></i></a>
+      <a href="#" onclick="sendWhatsapp();" ><i class="fa-brands fa-whatsapp fa-2xl"></i></a>
+    </div>
+
+    <div class="links">
+      <a href="#home">Laman utama</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#package">Kenapa Kami</a>
+      <a href="#products">Pakej</a>
+      <a href="#contact">Hubungi</a>
+    </div>
+
+    <div class="credit">
+      <p>Created by <a href="">MNS Engineering</a>. | &copy; 2024.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+
+<!-- Thank you! Start -->
+<section>
+  <div class="modalthanks" id="thanks" style="display: none;">
+      <div class="modalthanks-container">
+          <div class="modalthanks-content">
+              <img src="img/check-removebg-preview.png" alt="thanks">
+              <div class="modalthanks-text">
+                  <h3>Thank You!</h3>
+                  <p>Your item has been added to the cart.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- Thank you! End -->
+
+
+  <!-- Feather Icons -->
+  <script>
+    feather.replace()
+  </script>
+
+  <!-- My Javascript -->
+  <script src="js/script.js"></script>
+  <script src="slider/slider.js"></script>
+
+</body>
+
+</html>
