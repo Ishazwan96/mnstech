@@ -407,7 +407,7 @@ body {
 .pakej,
 .products,
 .contact,
-.project {
+.slider {
   padding: 8rem 7% 1.4rem;
 }
 
@@ -415,7 +415,7 @@ body {
 .pakej h2,
 .products h2,
 .contact h2,
-.project h2 {
+.slider h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
@@ -426,7 +426,7 @@ body {
 .products h2 span,
 .contact h2 span, 
 .contact p span, 
-.project h2 span {
+.slider h2 span {
   color: var(--primary);
 }
 
