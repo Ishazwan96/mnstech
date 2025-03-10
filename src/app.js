@@ -30,7 +30,7 @@ document.addEventListener('alpine:init', () => {
              },
             { id:10,name:'Wiring/Installation', img:'db.png', price: 0,
                 features: ['Wiring Soket','Wiring Lampu','Wiring Kipas','Wiring DB','lain-lain']
-             
+             },
         ],
         
         calculatePreviousPrice(price) {
