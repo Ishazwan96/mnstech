@@ -29,7 +29,7 @@ document.addEventListener('alpine:init', () => {
                 features: ['4K Resolution','1 x DVR Recorder','1 x 6TB HDD','16 x Camera (Dome/Bullet)','Wiring/Installation']
              },
             { id:10,name:'Wiring/Installation', img:'db.png', price: 0,
-                features: ['Wiring Soket','Wiring Lampu','Wiring Kipas','Wiring DB' & 'lain-lain']
+                features: ['Wiring Soket','Wiring Lampu','Wiring Kipas','Wiring DB','lain-lain']
              
         ],
         
