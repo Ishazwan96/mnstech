@@ -1,13 +1,13 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('products', () => ({
         items: [
-            { id:1,name:'4 Channel', img:'1.png', price: 1680,
+            { id:1,name:'4 Channel', products:'1.png', price: 1680,
                 features: ['FULL HD','1 x DVR Recorder','1 x 1TB HDD','4 x Camera (Dome/Bullet)','Wiring/Installation']
             },
-            { id:2,name:'8 Channel', img:'1.png', price: 3080,
+            { id:2,name:'8 Channel', products:'1.png', price: 3080,
                 features: ['FULL HD','1 x DVR Recorder','1 x 2TB HDD','8 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:3,name:'16 Channel', img:'1.png', price: 5880,
+            { id:3,name:'16 Channel', products:'1.png', price: 5880,
                 features: ['FULL HD','1 x DVR Recorder','1 x 4TB HDD','16 x Camera (Dome/Bullet)','Wiring/Installation']
              },
             { id:4,name:'4 Channel', img:'1.png', price: 2080,
