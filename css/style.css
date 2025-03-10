@@ -423,7 +423,7 @@ body {
 .about h2 span,
 .pakej h2 span,
 .products h2 span,
-.contact h2 span 
+.contact h2 span, 
 .contact p span {
   color: var(--primary);
 }
