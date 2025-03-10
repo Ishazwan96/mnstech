@@ -1,34 +1,34 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('products', () => ({
         items: [
-            { id:1,name:'4 Channel', products:'1.png', price: 1680,
+            { id:1,name:'4 Channel', img:'1.png', price: 1680,
                 features: ['FULL HD','1 x DVR Recorder','1 x 1TB HDD','4 x Camera (Dome/Bullet)','Wiring/Installation']
             },
-            { id:2,name:'8 Channel', products:'1.png', price: 3080,
+            { id:2,name:'8 Channel', img:'1.png', price: 3080,
                 features: ['FULL HD','1 x DVR Recorder','1 x 2TB HDD','8 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:3,name:'16 Channel', products:'1.png', price: 5880,
+            { id:3,name:'16 Channel', img:'1.png', price: 5880,
                 features: ['FULL HD','1 x DVR Recorder','1 x 4TB HDD','16 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:4,name:'4 Channel', products:'1.png', price: 2080,
+            { id:4,name:'4 Channel', img:'1.png', price: 2080,
                 features: ['SUPER HD','1 x DVR Recorder','1 x 1TB HDD','4 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:5,name:'8 Channel', products:'1.png', price: 3680,
+            { id:5,name:'8 Channel', img:'1.png', price: 3680,
                 features: ['SUPER HD','1 x DVR Recorder','1 x 2TB HDD','8 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:6,name:'16 Channel', products:'1.png', price: 6580,
+            { id:6,name:'16 Channel', img:'1.png', price: 6580,
                 features: ['SUPER HD','1 x DVR Recorder','1 x 4TB HDD','16 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:7,name:'4 Channel', products:'1.png', price: 2480,
+            { id:7,name:'4 Channel', img:'1.png', price: 2480,
                 features: ['4K Resolution','1 x DVR Recorder','1 x 2TB HDD','4 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:8,name:'8 Channel', products:'1.png', price: 4480,
+            { id:8,name:'8 Channel', img:'1.png', price: 4480,
                 features: ['4K Resolution','1 x DVR Recorder','1 x 4TB HDD','8 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:9,name:'16 Channel', products:'1.png', price: 7880,
+            { id:9,name:'16 Channel', img:'1.png', price: 7880,
                 features: ['4K Resolution','1 x DVR Recorder','1 x 6TB HDD','16 x Camera (Dome/Bullet)','Wiring/Installation']
              },
-            { id:10,name:'Wiring/Installation', products:'1.png', price: 0,
+            { id:10,name:'Wiring/Installation', img:'1.png', price: 0,
                 features: ['Control Panel (Booster/Transfer Pump Panel)','Wiring Soket','Wiring Lampu','Wiring Kipas','Wiring DB']
              },
         ],
