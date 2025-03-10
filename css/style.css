@@ -425,7 +425,6 @@ body {
 }
 
 .about h2,
-.pakej h2,
 .products h2,
 .contact h2 {
   text-align: center;
@@ -434,7 +433,6 @@ body {
 }
 
 .about h2 span,
-.pakej h2 span,
 .products h2 span,
 .contact h2 span, 
 .contact p span {
@@ -476,7 +474,6 @@ body {
 .contact h2 {
   margin-bottom: 1rem;
 }
-.pakej p,
 .products p,
 .contact p {
   text-align: center;
@@ -616,35 +613,11 @@ body {
 
 /* Products Section End*/
 
-.pakej {
-  background-color: #fff;
-}
-
-.pakej h2 {
-  color: black;
-  text-align: center;
-}
-
-.pakej .row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
-  margin-top: 2rem;
-  padding:2rem,
-}
-
-/* Section styling */
-section#package {
-  padding: 4rem 0; /* Adjust padding as needed */
-  /* Add background or background-color if desired */
-}
-
-/* Section Styling */
+/* Servis Kami Section */
 .pakej {
   text-align: center;
   padding: 50px 20px;
-  background-color: #f8f9fa; /* Light background for contrast */
+  background-color: #f8f9fa;
 }
 
 .pakej h2 {
@@ -655,7 +628,85 @@ section#package {
 }
 
 .pakej h2 span {
-  color: #ff6600; /* Primary color highlight */
+  color: #ff6600;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.kenapa {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kenapa i {
+  font-size: 3rem;
+  color: #ff6600;
+  transition: 0.3s ease;
+}
+
+.kenapa:hover i {
+  color: #333;
+}
+
+/* Harga Pendawaian Elektrik Section */
+.harga {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.harga h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.harga h2 span {
+  color: #ff6600;
+}
+
+.harga p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.harga ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.harga ul li {
+  font-size: 1rem;
+  color: #333;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.harga ul li strong {
+  color: #ff6600;
+}
+
+.harga p em {
+  font-size: 0.9rem;
+  color: #888;
 }
 
 /* Row - Flexbox Layout */
