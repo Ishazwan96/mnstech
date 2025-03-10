@@ -629,39 +629,76 @@ section#package {
   /* Add background or background-color if desired */
 }
 
-/* Individual item styling */
-.kenapa {
-  background-color: #4e4e4e;
-  padding: 2.5rem; /* Adjust padding as needed */
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 3rem; /* Adjust margin for spacing between items */
+/* Section Styling */
+.pakej {
   text-align: center;
+  padding: 50px 20px;
+  background-color: #f8f9fa; /* Light background for contrast */
 }
 
+.pakej h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.pakej h2 span {
+  color: #ff6600; /* Primary color highlight */
+}
+
+/* Row - Flexbox Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adjust space between items */
+}
+
+/* Individual Service Box */
+.kenapa {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  width: 280px; /* Consistent size */
+  max-width: 90%;
+}
+
+.kenapa:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Icons */
 .kenapa i {
-  font-size: 4rem;
-  color: var(--primary); /* Adjust based on your brand colors */
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  color: #ff6600;
+  margin-bottom: 15px;
   display: inline-block;
-  margin-top: 2rem;
+  transition: 0.3s ease;
 }
 
-.kenapa i:hover {
-  opacity: 0.8;
-  transform: translateY(-5px); /* Adjust the hover effect */
+.kenapa:hover i {
+  color: #333;
 }
 
+/* Titles */
+.kenapa h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Description Text */
 .kenapa p {
   font-size: 1rem;
-  color: #ffffff;
-  text-align: center;
-  margin-top: 2rem;
-  line-height: 1.6; /* Adjust line height for better readability */
+  color: #666;
+  line-height: 1.6;
 }
-
-
-
 /* Contact Section */
 .contact .row {
   display: flex;
