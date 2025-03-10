@@ -141,16 +141,18 @@ body {
   background-color:#4e4e4e;
 }
 
-.slider .dots {
+.slider .wdots {
   position: absolute;
-  bottom: 20px; /* Increase space from bottom */
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 10px;
+  left: 0;
   color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
-  z-index: 10; /* Ensure dots are above the slider */
 }
+
 .slider .dots li {
   list-style: none;
   width: 10px;
