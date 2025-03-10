@@ -121,7 +121,7 @@ body {
 }
 .slider .buttons {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 5%;
   width: 90%;
   display: flex;
