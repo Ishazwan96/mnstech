@@ -426,7 +426,8 @@ body {
 
 .about h2,
 .products h2,
-.contact h2 {
+.contact h2,
+.pakej h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
@@ -435,7 +436,8 @@ body {
 .about h2 span,
 .products h2 span,
 .contact h2 span, 
-.contact p span {
+.contact p span,
+.pakej h2 {
   color: var(--primary);
 }
 
@@ -471,11 +473,13 @@ body {
 
 /* Menu Section */
 .products h2,
-.contact h2 {
+.contact h2,
+.pakej h2 {
   margin-bottom: 1rem;
 }
 .products p,
-.contact p {
+.contact p,
+.pakej p {
   text-align: center;
   max-width: 30rem;
   margin: auto;
@@ -612,30 +616,6 @@ body {
 }
 
 /* Products Section End*/
-
-/* Servis Kami Section */
-.pakej {
-  text-align: center;
-  padding: 50px 20px;
-  background-color: #f8f9fa;
-}
-
-.pakej h2 {
-  font-size: 2.5rem;
-  color: #333;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
-
-.pakej h2 span {
-  color: #ff6600;
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
 
 /* Individual item styling */
 .kenapa {
