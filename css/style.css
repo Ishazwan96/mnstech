@@ -695,9 +695,11 @@ body {
 
 .harga ul li {
   font-size: 1rem;
+  text-align: center;
   color: #333;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
+  
 }
 
 .harga ul li strong {
