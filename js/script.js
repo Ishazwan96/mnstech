@@ -20,7 +20,7 @@ const shoppingCart = document.querySelector('.shopping-cart');
 document.querySelector('#shopping-cart-button').onclick = (e) => {
   shoppingCart.classList.toggle('active');
   e.preventDefault();
-};
+
 
 // Klik di luar elemen
 const hm = document.querySelector('#hamburger-menu');
@@ -54,3 +54,5 @@ function toggleWhatsAppPopup() {
             
             window.open(whatsappURL, "_blank");
         }
+        
+        };
