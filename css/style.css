@@ -620,16 +620,18 @@ body {
 /* Styling for each service item */
 
 /* Servis Kami Section */
-.package {
+#package {
+    position: relative; /* Ensures child elements (overlay & text) work properly */
     background: url('db.png') no-repeat center center;
     background-size: cover;
     padding: 50px 0; /* Adjust padding as needed */
     color: white; /* Ensure text is readable */
     text-align: center;
+    overflow: hidden;
 }
 
 /* Add semi-transparent overlay for better text visibility */
-.package::before {
+#package::before {
     content: "";
     position: absolute;
     top: 0;
@@ -641,11 +643,12 @@ body {
 }
 
 /* Make sure text is above the overlay */
-.package h2, #package .row {
+#package h2, #package .row {
     position: relative;
     z-index: 2;
 }
 
+/* Icon, Title, and Text Styling */
 .kenapa {
   text-align: center;
   margin-bottom: 3rem; /* Adds spacing between items */
@@ -663,7 +666,7 @@ body {
 .kenapa h3 {
   font-size: 1.8rem; /* Bold and clear */
   font-weight: 600;
-  color: #222; /* Darker text for better readability */
+  color: #fff; /* White text to contrast with dark overlay */
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -671,7 +674,7 @@ body {
 /* Text Styling */
 .kenapa p {
   font-size: 1.4rem; /* Larger text for readability */
-  color: #333;
+  color: #ddd; /* Light gray text for better contrast */
   font-weight: 500;
   text-align: center;
   margin-top: 1rem;
@@ -680,7 +683,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .pakej h2 {
+  #package h2 {
     font-size: 2.2rem;
   }
   .kenapa i {
