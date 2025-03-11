@@ -436,7 +436,7 @@ body {
 .products h2 span,
 .contact h2 span, 
 .contact p span,
-.pakej h2 {
+.pakej h2 span {
   color: var(--primary);
 }
 
