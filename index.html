@@ -351,11 +351,23 @@
 </section>
 <!-- Thank you! End -->
 
-<!-- Whatsapp pop up-->
-<a href="https://wa.me/6013689091?text=Hi,%20saya%20berminat%20dengan%20servis%20anda!" 
-   class="whatsapp-float" target="_blank">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
+ <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" onclick="toggleWhatsAppPopup()">
+        <i class="fa-brands fa-whatsapp"></i>
+    </div>
+
+    <!-- WhatsApp Pop-up Chatbox -->
+    <div id="whatsapp-popup">
+        <div class="whatsapp-header">
+            <span>Chat dengan kami</span>
+            <button onclick="toggleWhatsAppPopup()">✖</button>
+        </div>
+        <div class="whatsapp-body">
+            <p>Hi! Ada yang boleh saya bantu?</p>
+            <textarea id="whatsapp-message" placeholder="Tulis mesej anda..."></textarea>
+            <button class="whatsapp-send" onclick="sendWhatsAppMessage()">Hantar</button>
+        </div>
+    </div>
 
 
   <!-- Feather Icons -->
