@@ -622,7 +622,7 @@ body {
 /* Servis Kami Section */
 #package {
     position: relative; /* Ensures child elements (overlay & text) work properly */
-    background: url('products/db.png') no-repeat center center;
+    background: url('../products/db.png') no-repeat center center;
     background-size: cover;
     padding: 50px 0; /* Adjust padding as needed */
     color: white; /* Ensure text is readable */
