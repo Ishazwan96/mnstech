@@ -40,3 +40,17 @@ document.addEventListener('click', function (e) {
     shoppingCart.classList.remove('active');
   }
 });
+
+function toggleWhatsAppPopup() {
+            var popup = document.getElementById("whatsapp-popup");
+            popup.style.display = (popup.style.display === "flex") ? "none" : "flex";
+        }
+
+        function sendWhatsAppMessage() {
+            var phoneNumber = "6013689091"; // Replace with your WhatsApp number
+            var message = document.getElementById("whatsapp-message").value;
+            var encodedMessage = encodeURIComponent(message);
+            var whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + encodedMessage;
+            
+            window.open(whatsappURL, "_blank");
+        }
