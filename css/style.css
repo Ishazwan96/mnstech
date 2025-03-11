@@ -615,13 +615,12 @@ body {
 .add-to-cart-btn:hover {
   background-color: #4e4e4e; /* Update with a darker shade of your primary color */
 }
-
 /* Products Section End*/
 
 /* Styling for each service item */
 
 /* Servis Kami Section */
-#package {
+.package {
     background: url('db.png') no-repeat center center;
     background-size: cover;
     padding: 50px 0; /* Adjust padding as needed */
@@ -630,7 +629,7 @@ body {
 }
 
 /* Add semi-transparent overlay for better text visibility */
-#package::before {
+.package::before {
     content: "";
     position: absolute;
     top: 0;
@@ -642,11 +641,10 @@ body {
 }
 
 /* Make sure text is above the overlay */
-#package h2, #package .row {
+.package h2, #package .row {
     position: relative;
     z-index: 2;
 }
-
 
 .kenapa {
   text-align: center;
