@@ -617,58 +617,55 @@ body {
 
 /* Products Section End*/
 
-/* Individual item styling */
-/* Individual item styling */
+/* Styling for each service item */
 .kenapa {
-  background-color: #4e4e4e;
-  padding: 3rem; /* Increased padding for better spacing */
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
-  margin-bottom: 3rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.kenapa:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  margin-bottom: 3rem; /* Adds spacing between items */
 }
 
 /* Icon Styling */
 .kenapa i {
-  font-size: 5rem; /* Upsized icon */
+  font-size: 5rem; /* Larger icons */
   color: var(--primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   display: inline-block;
 }
 
-.kenapa i:hover {
-  opacity: 0.9;
-  transform: scale(1.1); /* Enlarges slightly on hover */
+/* Title Styling */
+.kenapa h3 {
+  font-size: 1.8rem; /* Bold and clear */
+  font-weight: 600;
+  color: #222; /* Darker text for better readability */
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Text Styling */
 .kenapa p {
-  font-size: 1.2rem; /* Increased font size */
-  color: #ffffff;
-  text-align: center;
-  margin-top: 1.5rem;
-  line-height: 1.8;
+  font-size: 1.4rem; /* Larger text for readability */
+  color: #333;
   font-weight: 500;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.8;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .kenapa {
-    padding: 2rem;
+  .pakej h2 {
+    font-size: 2.2rem;
   }
   .kenapa i {
     font-size: 4rem;
   }
+  .kenapa h3 {
+    font-size: 1.6rem;
+  }
   .kenapa p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
+
 /* Harga Pendawaian Elektrik Section */
 .harga {
   text-align: center;
