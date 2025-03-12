@@ -263,5 +263,3 @@ const RM = (number) => {
   
     window.open(url, '_blank').focus();
   }
-
-Only this code
