@@ -168,7 +168,7 @@ body {
   width: 10px;
   height: 10px;
   background-color: #fff;
-  margin: 0;
+  margin: 10px;
   border-radius: 20px;
   transition: 0.5s;
 }
