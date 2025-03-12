@@ -465,7 +465,7 @@ body {
 }
 .about .row .content p {
   margin-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 2rem;
   line-height: 1.5;
 }
 
@@ -484,6 +484,7 @@ body {
   margin: auto;
   font-weight: 100;
   line-height: 1.6;
+  font-size:1.5rem;
 }
 
 .menu .row .menu-card {
@@ -517,6 +518,7 @@ body {
 .products p {
   text-align: center;
   color: #ffffff;
+  font-size:1.5rem
 }
 
 .products .product-content p {
@@ -581,7 +583,7 @@ body {
 }
 
 .products-price p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #000;
   margin-top: 2rem; /* Adjust top margin as needed */
@@ -671,7 +673,7 @@ body {
 
 /* Text Styling */
 .kenapa p {
-  font-size: 1.4rem; /* Larger text for readability */
+  font-size: 1.5rem; /* Larger text for readability */
   color: #ddd; /* Light gray text for better contrast */
   font-weight: 500;
   text-align: center;
@@ -688,10 +690,10 @@ body {
     font-size: 4rem;
   }
   .kenapa h3 {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   .kenapa p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -714,7 +716,7 @@ body {
 }
 
 .harga p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #666;
   margin-bottom: 20px;
 }
@@ -728,7 +730,7 @@ body {
 }
 
 .harga ul li {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #333;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
@@ -740,7 +742,7 @@ body {
 }
 
 .harga p em {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #888;
 }
 
@@ -792,7 +794,7 @@ body {
 
 /* Description Text */
 .kenapa p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #666;
   line-height: 1.6;
 }
@@ -1088,7 +1090,7 @@ color: var(--primary);
   }
 
   .menu p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .contact .row {
@@ -1136,7 +1138,7 @@ color: var(--primary);
 }
 
 .modalthanks-content p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.5rem;
   margin: 0; /* Reset margin to remove default spacing */
 }
@@ -1197,7 +1199,7 @@ color: var(--primary);
 }
 
 .products-price p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #000;
 }
@@ -1255,11 +1257,11 @@ color: var(--primary);
 }
 
 .shopping-cart h3 {
-  font-size: 1.2rem; /* Decreased font size for smaller screens */
+  font-size: 2.5rem; /* Decreased font size for smaller screens */
 }
 
 .shopping-cart p {
-  font-size: 0.9rem; /* Decreased font size for smaller screens */
+  font-size: 1.5rem; /* Decreased font size for smaller screens */
 }
 
 .shopping-cart h4 {
@@ -1351,7 +1353,7 @@ color: var(--primary);
 }
 
 .products-price p {
-  font-size: 1.2rem; /* Adjusted font size for smaller screens */
+  font-size: 1.5rem; /* Adjusted font size for smaller screens */
   font-weight: bold;
   color: #000;
   margin-top: 1.5rem; /* Adjust top margin as needed */
@@ -1368,7 +1370,7 @@ color: var(--primary);
   color: #fff;
   border: none;
   padding: 1rem 1.5rem; /* Adjusted padding for smaller screens */
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 4px;
