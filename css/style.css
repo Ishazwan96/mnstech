@@ -151,7 +151,6 @@ body {
 .slider .buttons button:hover {
   background-color:#4e4e4e;
 }
-/* Slider Dot Container */
 .slider .dots {
   position: absolute;
   bottom: 10px;
@@ -164,18 +163,15 @@ body {
   justify-content: center;
 }
 
-/* Individual Dot Style */
 .slider .dots li {
   list-style: none;
   width: 10px;
   height: 10px;
   background-color: #fff;
-  margin: 0 5px; /* Reduced the margin between the dots to tighten them */
+  margin: 10px;
   border-radius: 20px;
   transition: 0.5s;
 }
-
-/* Active Dot Style */
 .slider .dots li.active {
   width: 30px;
 }
