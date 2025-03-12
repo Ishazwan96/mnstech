@@ -279,8 +279,8 @@ body {
   display: inline-block;
   padding: 1px 5px;
   background-color: red;
-  border-radius: 50%;
-  font-size: 0.5rem;
+  border-radius: 10px;
+  font-size: 0.6rem;
   position: absolute;
   top: 0;
   right: -12px;
