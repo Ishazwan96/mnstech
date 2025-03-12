@@ -154,9 +154,9 @@ body {
 /* Slider Dot Container */
 .slider .dots {
   position: absolute;
-  bottom: 15px; /* Adjusted the distance from the bottom */
+  bottom: 15px; /* Adjust the distance from the bottom */
   left: 50%; /* Center the dots horizontally */
-  transform: translateX(-50%); /* Ensure proper centering */
+  transform: translateX(-50%); /* Center the dots perfectly */
   color: #fff;
   width: 100%;
   margin: 0;
@@ -164,6 +164,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10; /* Ensure dots appear above images */
 }
 
 /* Individual Dot Style */
@@ -173,7 +174,7 @@ body {
   height: 8px; /* Reduced height for smaller dots */
   background-color: rgba(255, 255, 255, 0.6); /* Slightly transparent white */
   margin: 0 5px; /* Closer spacing between the dots */
-  border-radius: 50%; /* Make the dots perfectly round */
+  border-radius: 50%; /* Perfectly round dots */
   transition: all 0.3s ease-in-out; /* Smooth transition for dot size */
 }
 
