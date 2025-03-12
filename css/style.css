@@ -422,6 +422,7 @@ body {
   padding: 8rem 7% 1.4rem;
 }
 
+/* Tajuk utama untuk setiap bahagian */
 .about h2,
 .products h2,
 .contact h2,
@@ -429,48 +430,107 @@ body {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
+  font-weight: bold;
 }
 
 .about h2 span,
 .products h2 span,
-.contact h2 span, 
+.contact h2 span,
 .pakej h2 span {
   color: var(--primary);
 }
+
 .contact p span {
   color: var(--primary);
 }
 
+/* Susun atur utama */
 .about .row {
   display: flex;
-  justify-content: center; /* Center the content within the row */
-}
-.about .row .about-img {
-  flex: 1 1 20rem;
-  text-align: center;
-}
-.about .row .about-img img {
-  width: 70%;
-  height: 50%;
-  border-radius: 50%;
-  height: 24rem;
-  object-fit: cover;
-  object-position: center;
-}
-.about .row .content {
-  flex: 1 1 35rem;
-  padding: 0 1rem;
-}
-.about .row .content h3 {
-  margin-top: 1rem;
-  font-size: 5rem;
-}
-.about .row .content p {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  line-height: 1.5;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; /* Center the content */
+  gap: 2rem; /* Ruang antara elemen */
 }
 
+/* Bahagian imej */
+.about .row .about-img {
+  flex: 1 1 25rem;
+  text-align: center;
+}
+
+.about .row .about-img img {
+  width: 70%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efek hover pada imej */
+.about .row .about-img img:hover {
+  transform: scale(1.05);
+}
+
+/* Bahagian kandungan (teks) */
+.about .row .content {
+  flex: 1 1 40rem;
+  padding: 0 2rem;
+}
+
+.about .row .content h3 {
+  margin-top: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Teks perenggan */
+.about .row .content p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Butang Hubungi */
+.about .row .content .btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  color: #fff;
+  background: var(--primary);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.about .row .content .btn:hover {
+  background: #cc5500;
+}
+
+/* Responsif untuk skrin kecil */
+@media (max-width: 768px) {
+  .about .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about .row .content {
+    padding: 0;
+  }
+
+  .about .row .content h3 {
+    font-size: 2.5rem;
+  }
+
+  .about .row .content p {
+    font-size: 1rem;
+  }
+}
 /* Menu Section */
 .products h2,
 .contact h2,
