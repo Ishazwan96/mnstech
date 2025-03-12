@@ -157,33 +157,39 @@ checkoutButton.addEventListener('click', function(e) {
 
 });
 
-/// Format pesan Whatsapp ///
-
+/// Format WhatsApp Message ///
 const formatMessage = (obj) => {
-    // Parse the items from JSON string to array of objects
-    const items = JSON.parse(obj.items);
+    try {
+        // Ensure obj.items is a valid JSON string before parsing
+        const items = typeof obj.items === "string" ? JSON.parse(obj.items) : obj.items;
 
-    // Format customer details
-    let message = `*Customer Details*\n\n`;
-    message += `Name: ${obj.name}\n`;
-    message += `Email: ${obj.email}\n`;
-    message += `No. Tel: ${obj.phone}\n`;
-    message += `Location: ${obj.location}\n\n`;
+        // Format customer details
+        let message = `*Customer Details*\n`;
+        message += `======================\n`;
+        message += `👤 Name: ${obj.name}\n`;
+        message += `📧 Email: ${obj.email}\n`;
+        message += `📞 No. Tel: ${obj.phone}\n`;
+        message += `📍 Location: ${obj.location}\n\n`;
 
-    // Format order details
-    message += `*Order Details*\n\n`;
-    items.forEach((item) => {
-        message += `${item.name} (${item.quantity} x ${RM(item.total)})\n`;
-        message += `Features: ${item.features.join(', ')}\n\n`;
-    });
+        // Format order details
+        message += `*Order Details*\n`;
+        message += `======================\n`;
+        items.forEach((item, index) => {
+            message += `📌 ${index + 1}. ${item.name} (${item.quantity} x ${RM(item.total)})\n`;
+            message += `🔹 Features: ${item.features.join(', ')}\n\n`;
+        });
 
-    // Format total
-    message += `TOTAL: ${RM(obj.total)}\n\n`;
+        // Format total
+        message += `💰 TOTAL: ${RM(obj.total)}\n\n`;
 
-    // Thank you message
-    message += `Terima Kasih!`;
+        // Thank you message
+        message += `🙏 Terima Kasih!\n`;
 
-    return message;
+        return message;
+    } catch (error) {
+        console.error("Error formatting message:", error);
+        return "Error formatting message.";
+    }
 };
 
 /// Convert to MYR ///
@@ -191,57 +197,52 @@ const RM = (number) => {
     return new Intl.NumberFormat('ms-MY', {
         style: 'currency',
         currency: 'MYR',
-        minimumFractionDigits: 0,
+        minimumFractionDigits: 2, // Ensure decimal places
     }).format(number);
 };
 
-// Form validation Hantar Form
+// Form Validation: Hantar Form
+const hantarButton = document.getElementById('hantar-button');
+const contactForm = document.getElementById('hantarForm');
 
-  const hantarButton = document.getElementById('hantar-button');
-  const contactForm = document.getElementById('hantarForm');
-
-  // Function to check if all fields are filled
-  function checkForm() {
+// Function to check if all fields are filled
+function checkForm() {
     const inputs = contactForm.querySelectorAll('input, textarea');
-    let formIsValid = true;
-
-    inputs.forEach(input => {
-      if (input.value.trim() === '') {
-        formIsValid = false;
-      }
-    });
+    let formIsValid = [...inputs].every(input => input.value.trim() !== "");
 
     // Enable/disable button based on form validity
-    if (formIsValid) {
-      hantarButton.disabled = false;
-      hantarButton.classList.remove('disabled');
-    } else {
-      hantarButton.disabled = true;
-      hantarButton.classList.add('disabled');
+    hantarButton.disabled = !formIsValid;
+    hantarButton.classList.toggle('disabled', !formIsValid);
+}
+
+// Add event listeners to form inputs
+contactForm.addEventListener('input', checkForm);
+
+// Initial validation on page load
+checkForm();
+
+// Function to send WhatsApp Message
+function sendWhatsapp() {
+    const name = document.querySelector('.name').value.trim();
+    const email = document.querySelector('.email').value.trim();
+    const phone = document.querySelector('.phone').value.trim();
+    const message = document.querySelector('.message').value.trim();
+
+    if (!name || !email || !phone || !message) {
+        alert("Sila isi semua maklumat sebelum menghantar!");
+        return;
     }
-  }
 
-  // Add event listeners to form inputs
-  contactForm.addEventListener('input', checkForm);
+    const whatsappMessage = `*Customer Details*\n` +
+        `======================\n` +
+        `👤 Name: ${name}\n` +
+        `📧 Email: ${email}\n` +
+        `📞 No. Tel: ${phone}\n` +
+        `💬 Message: ${message}\n\n` +
+        `🙏 Thank you!`;
 
-  // Initial validation on page load
-  checkForm();
-
-  function sendWhatsapp() {
-    var name = document.querySelector('.name').value;
-    var email = document.querySelector('.email').value;
-    var phone = document.querySelector('.phone').value;
-    var message = document.querySelector('.message').value;
-  
-    var url = "https://wa.me/60136839091?text=" +
-      "Customer Details %0a%0a" +
-      "Name : " + name + "%0a" +
-      "Email : " + email + "%0a" +
-      "No.Tel : " + phone + "%0a" +
-      "Message : " + message + "%0a%0a" +
-      "Thank you!";
-  
+    const url = `https://wa.me/60136839091?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(url, '_blank').focus();
-  }
+}
 
 
