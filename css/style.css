@@ -151,30 +151,37 @@ body {
 .slider .buttons button:hover {
   background-color:#4e4e4e;
 }
-
+/* Slider Dot Container */
 .slider .dots {
   position: absolute;
-  bottom: 10px;
-  left: 0;
+  bottom: 15px; /* Adjusted the distance from the bottom */
+  left: 50%; /* Center the dots horizontally */
+  transform: translateX(-50%); /* Ensure proper centering */
   color: #fff;
   width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
+/* Individual Dot Style */
 .slider .dots li {
   list-style: none;
-  width: 10px;
-  height: 10px;
-  background-color: #fff;
-  margin: 10px;
-  border-radius: 20px;
-  transition: 0.5s;
+  width: 8px; /* Reduced width for smaller dots */
+  height: 8px; /* Reduced height for smaller dots */
+  background-color: rgba(255, 255, 255, 0.6); /* Slightly transparent white */
+  margin: 0 5px; /* Closer spacing between the dots */
+  border-radius: 50%; /* Make the dots perfectly round */
+  transition: all 0.3s ease-in-out; /* Smooth transition for dot size */
 }
+
+/* Active Dot Style */
 .slider .dots li.active {
-  width: 30px;
+  width: 15px; /* Slightly bigger active dot */
+  height: 15px; /* Ensure height matches width */
+  background-color: #fff; /* Solid white for active dot */
 }
 
 /* Navbar */
