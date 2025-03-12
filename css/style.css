@@ -342,7 +342,7 @@ body {
 .shopping-cart .item-price {
   font-size: 1.5rem;
 }
-.shopping-cart .item-price {
+.shopping-cart .item-price span {
   font-size: 1.5rem;
 
 .shopping-cart .cart-item #add,
