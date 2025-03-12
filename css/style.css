@@ -1259,7 +1259,7 @@ color: var(--primary);
 }
 
 .shopping-cart h3 {
-  font-size: 2.5rem; /* Decreased font size for smaller screens */
+  font-size: 1.5rem; /* Decreased font size for smaller screens */
 }
 
 .shopping-cart p {
