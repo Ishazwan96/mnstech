@@ -176,6 +176,7 @@ checkoutButton.addEventListener('click', function(e) {
 
         // Initial validation on page load
         checkForm();
+        
 /// Format pesan Whatsapp ///
 
 const formatMessage = (obj) => {
