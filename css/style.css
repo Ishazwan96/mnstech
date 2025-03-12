@@ -157,7 +157,6 @@ body {
   left: 0;
   color: #fff;
   width: 100%;
-  margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -168,7 +167,7 @@ body {
   width: 10px;
   height: 10px;
   background-color: #fff;
-  margin: 10px;
+  gap: 10px;
   border-radius: 20px;
   transition: 0.5s;
 }
