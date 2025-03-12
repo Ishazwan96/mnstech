@@ -154,34 +154,32 @@ body {
 /* Slider Dot Container */
 .slider .dots {
   position: absolute;
-  bottom: 10px; /* Distance from the bottom */
-  left: 50%; /* Center the dots horizontally */
-  transform: translateX(-50%); /* Center the dots perfectly */
+  bottom: 10px;
+  left: 0;
+  color: #fff;
   width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Distribute dots evenly */
-  align-items: center;
+  justify-content: center;
 }
 
 /* Individual Dot Style */
 .slider .dots li {
   list-style: none;
-  width: 8px; /* Slightly smaller dot size */
-  height: 8px; /* Matching height for smaller dots */
-  background-color: rgba(255, 255, 255, 0.6); /* Slightly transparent white for inactive dots */
-  margin: 0 5px; /* Adjust spacing to be tighter between the dots */
-  border-radius: 50%; /* Perfectly round dots */
-  transition: all 0.3s ease-in-out; /* Smooth transition for size change */
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  margin: 0 5px; /* Reduced the margin between the dots to tighten them */
+  border-radius: 20px;
+  transition: 0.5s;
 }
 
 /* Active Dot Style */
 .slider .dots li.active {
-  width: 15px; /* Slightly bigger active dot */
-  height: 15px; /* Ensure height matches width */
-  background-color: #fff; /* Solid white for active dot */
+  width: 30px;
 }
+
 
 /* Navbar */
 .navbar {
