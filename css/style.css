@@ -167,7 +167,7 @@ body {
   width: 10px;
   height: 10px;
   background-color: #fff;
-  gap: 10px;
+  margin: 10px;
   border-radius: 20px;
   transition: 0.5s;
 }
