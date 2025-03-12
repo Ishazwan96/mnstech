@@ -69,7 +69,7 @@ add(newItem) {
                     if (e.target === thanksModal) {
                         thanksModal.style.display = 'none';
                     }
-                };t6
+                };
 
         }  else {
 
