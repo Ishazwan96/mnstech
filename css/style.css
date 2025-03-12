@@ -277,9 +277,9 @@ body {
 
 #shopping-cart-button .quantity-badge {
   display: inline-block;
-  padding: 1px 5px;
+  padding: 0.5px 5px;
   background-color: red;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size:1.5rem;
   position: absolute;
   top: 0;
