@@ -280,7 +280,7 @@ body {
   padding: 1px 5px;
   background-color: red;
   border-radius: 10px;
-  font-size: 0.8rem;
+  font-size: 0.3rem;
   position: absolute;
   top: 0;
   right: -12px;
@@ -344,7 +344,7 @@ body {
 }
 .shopping-cart .item-price span {
   font-size: 1.5rem;
-
+}
 .shopping-cart .cart-item #add,
 .shopping-cart .cart-item #remove {
   background-color: #010101;
