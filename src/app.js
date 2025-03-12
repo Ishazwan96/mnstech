@@ -215,44 +215,53 @@ const RM = (number) => {
     }).format(number);
 };
 
-// Select form and button elements
-const hantarButton = document.getElementById('hantar-button');
-const contactForm = document.getElementById('hantarForm');
+// Form validation Hantar Form
 
-// Function to check if all fields are filled
-function checkForm() {
+  const hantarButton = document.getElementById('hantar-button');
+  const contactForm = document.getElementById('hantarForm');
+
+  // Function to check if all fields are filled
+  function checkForm() {
     const inputs = contactForm.querySelectorAll('input, textarea');
-    let formIsValid = [...inputs].every(input => input.value.trim() !== "");
+    let formIsValid = true;
 
-    // Enable or disable button based on form validity
-    hantarButton.disabled = !formIsValid;
-    hantarButton.classList.toggle('disabled', !formIsValid);
-}
+    inputs.forEach(input => {
+      if (input.value.trim() === '') {
+        formIsValid = false;
+      }
+    });
 
-// Add event listeners to form inputs
-contactForm.addEventListener('input', checkForm);
-
-// Initial validation on page load
-checkForm();
-
-// Function to send WhatsApp message
-function sendWhatsapp() {
-    const name = document.querySelector('.name').value.trim();
-    const email = document.querySelector('.email').value.trim();
-    const phone = document.querySelector('.phone').value.trim();
-    const message = document.querySelector('.message').value.trim();
-
-    // Ensure fields are not empty before proceeding
-    if (!name || !email || !phone || !message) {
-        alert("Please fill in all the fields before sending.");
-        return;
+    // Enable/disable button based on form validity
+    if (formIsValid) {
+      hantarButton.disabled = false;
+      hantarButton.classList.remove('disabled');
+    } else {
+      hantarButton.disabled = true;
+      hantarButton.classList.add('disabled');
     }
+  }
 
-    // Format WhatsApp URL
-    const url = `https://wa.me/60136839091?text=${encodeURIComponent(
-        `*Customer Details*\n\n👤 Name: ${name}\n📧 Email: ${email}\n📞 No. Tel: ${phone}\n💬 Message: ${message}\n\n🙏 Thank you!`
-    )}`;
+  // Add event listeners to form inputs
+  contactForm.addEventListener('input', checkForm);
 
-    // Open WhatsApp chat
+  // Initial validation on page load
+  checkForm();
+
+  function sendWhatsapp() {
+    var name = document.querySelector('.name').value;
+    var email = document.querySelector('.email').value;
+    var phone = document.querySelector('.phone').value;
+    var message = document.querySelector('.message').value;
+  
+    var url = "https://wa.me/60136839091?text=" +
+      "Customer Details %0a%0a" +
+      "Name : " + name + "%0a" +
+      "Email : " + email + "%0a" +
+      "No.Tel : " + phone + "%0a" +
+      "Message : " + message + "%0a%0a" +
+      "Thank you!";
+  
     window.open(url, '_blank').focus();
-}
+  }
+
+Only this code
