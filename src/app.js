@@ -177,26 +177,89 @@ checkoutButton.addEventListener('click', function(e) {
         // Initial validation on page load
         checkForm();
 
-        // Function to send WhatsApp Message
-        function sendWhatsapp() {
-            const name = document.querySelector('.name').value.trim();
-            const email = document.querySelector('.email').value.trim();
-            const phone = document.querySelector('.phone').value.trim();
-            const message = document.querySelector('.message').value.trim();
+        /// Format pesan Whatsapp ///
 
-            if (!name || !email || !phone || !message) {
-                alert("Sila isi semua maklumat sebelum menghantar!");
-                return;
-            }
+const formatMessage = (obj) => {
+    // Parse the items from JSON string to array of objects
+    const items = JSON.parse(obj.items);
 
-            const whatsappMessage = `*Customer Details*\n` +
-                `======================\n` +
-                `👤 Name: ${name}\n` +
-                `📧 Email: ${email}\n` +
-                `📞 No. Tel: ${phone}\n` +
-                `💬 Message: ${message}\n\n` +
-                `🙏 Terima Kasih!`;
+    // Format customer details
+    let message = `*Customer Details*\n\n`;
+    message += `Name: ${obj.name}\n`;
+    message += `Email: ${obj.email}\n`;
+    message += `No. Tel: ${obj.phone}\n`;
+    message += `Location: ${obj.location}\n\n`;
 
-            const url = `https://wa.me/60136839091?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(url, '_blank').focus();
-        }
+    // Format order details
+    message += `*Order Details*\n\n`;
+    items.forEach((item) => {
+        message += `${item.name} (${item.quantity} x ${RM(item.total)})\n`;
+        message += `Features: ${item.features.join(', ')}\n\n`;
+    });
+
+    // Format total
+    message += `TOTAL: ${RM(obj.total)}\n\n`;
+
+    // Thank you message
+    message += `Terima Kasih!`;
+
+    return message;
+};
+
+/// Convert to MYR ///
+const RM = (number) => {
+    return new Intl.NumberFormat('ms-MY', {
+        style: 'currency',
+        currency: 'MYR',
+        minimumFractionDigits: 0,
+    }).format(number);
+};
+
+// Form validation Hantar Form
+
+  const hantarButton = document.getElementById('hantar-button');
+  const contactForm = document.getElementById('hantarForm');
+
+  // Function to check if all fields are filled
+  function checkForm() {
+    const inputs = contactForm.querySelectorAll('input, textarea');
+    let formIsValid = true;
+
+    inputs.forEach(input => {
+      if (input.value.trim() === '') {
+        formIsValid = false;
+      }
+    });
+
+    // Enable/disable button based on form validity
+    if (formIsValid) {
+      hantarButton.disabled = false;
+      hantarButton.classList.remove('disabled');
+    } else {
+      hantarButton.disabled = true;
+      hantarButton.classList.add('disabled');
+    }
+  }
+
+  // Add event listeners to form inputs
+  contactForm.addEventListener('input', checkForm);
+
+  // Initial validation on page load
+  checkForm();
+
+  function sendWhatsapp() {
+    var name = document.querySelector('.name').value;
+    var email = document.querySelector('.email').value;
+    var phone = document.querySelector('.phone').value;
+    var message = document.querySelector('.message').value;
+  
+    var url = "https://wa.me/60136839091?text=" +
+      "Customer Details %0a%0a" +
+      "Name : " + name + "%0a" +
+      "Email : " + email + "%0a" +
+      "No.Tel : " + phone + "%0a" +
+      "Message : " + message + "%0a%0a" +
+      "Thank you!";
+  
+    window.open(url, '_blank').focus();
+  }
