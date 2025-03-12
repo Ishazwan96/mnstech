@@ -53,6 +53,3 @@ const slider = document.querySelector('.slider');
 slider.addEventListener('click', (e) => {
   e.stopPropagation(); // Stop event propagation to prevent closing the shopping cart
 });
-
-
-Make it dot repeatly 5 dots only
