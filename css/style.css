@@ -165,17 +165,16 @@ body {
 
 .slider .dots li {
   list-style: none;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   background-color: #fff;
-  margin: 10px;
+  margin: 0;
   border-radius: 20px;
   transition: 0.5s;
 }
 .slider .dots li.active {
-  width: 30px;
+  width: 20px;
 }
-
 
 /* Navbar */
 .navbar {
