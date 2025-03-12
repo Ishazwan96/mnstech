@@ -324,7 +324,7 @@ body {
 }
 
 .shopping-cart h3 {
-  font-size:1rem;
+  font-size:0.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -340,7 +340,7 @@ body {
 }
 
 .shopping-cart .item-price {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .shopping-cart .cart-item #add,
@@ -348,7 +348,7 @@ body {
   background-color: #010101;
   color: #fff;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 8px 10px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -583,7 +583,7 @@ body {
 }
 
 .products-price p {
-  font-size: 1.5rem;
+  font-size:2.5rem;
   font-weight: bold;
   color: #000;
   margin-top: 2rem; /* Adjust top margin as needed */
@@ -664,7 +664,7 @@ body {
 
 /* Title Styling */
 .kenapa h3 {
-  font-size: 2rem; /* Bold and clear */
+  font-size:1.8rem; /* Bold and clear */
   font-weight: 600;
   color: #fff; /* White text to contrast with dark overlay */
   margin-top: 1rem;
@@ -786,7 +786,7 @@ body {
 
 /* Titles */
 .kenapa h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 10px;
   color: #333;
@@ -1186,7 +1186,7 @@ color: var(--primary);
 }
 
 .product-content h3 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #333;
   margin-bottom: 0.5rem;
 }
@@ -1278,7 +1278,7 @@ color: var(--primary);
 }
 
 .products h2 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
