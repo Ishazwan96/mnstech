@@ -801,62 +801,67 @@ body {
 
 /* Contact Section */
 .contact .row {
-    display: flex;
-    margin-top: 2rem;
-    background-color: #222;
+  display: flex;
+  margin-top: 2rem;
+  background-color: #222;
 }
 
 .contact .row .map {
-    flex: 1 1 45rem;
-    width: 100%;
-    object-fit: cover;
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
 }
 
 .contact .row form {
-    flex: 1 1 45rem;
-    padding: 5rem 2rem;
-    text-align: center;
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
 }
 
 .contact .row form .input-group {
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-    background-color: var(--bg);
-    border: 1px solid #eee;
-    padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #eee;
+  padding-left: 2rem;
 }
 
-.contact .row form .input-group input,
-.contact .row form .input-group textarea {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1.7rem;
-    background: none;
-    color: #fff;
-    border: none;
-    outline: none;
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #fff;
 }
 
 .contact .row form .btn {
-    margin-top: 3rem;
-    display: inline-block;
-    padding: 1rem 3rem;
-    font-size: 1.7rem;
-    color: #fff;
-    background-color: var(--primary);
-    cursor: pointer;
-    border: none;
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: var(--primary);
+  cursor: pointer;
 }
 
 .contact .row form .btn:hover {
-    background-color: var(--bg);
-    color: var(--primary);
+  background-color: var(--bg);
+  color: var(--primary);
+
+}
+.contact .row form .btn.disabled {
+  background-color: #999;
+  cursor:not-allowed;
 }
 
-.contact .row form .btn.disabled {
-    background-color: #999;
-    cursor: not-allowed;
+.contact .input-group textarea {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.9rem;
+  background: none;
+  color: #fff;
+  margin-top: 1.5rem;
 }
 
 /* Footer */
