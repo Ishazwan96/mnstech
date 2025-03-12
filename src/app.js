@@ -176,8 +176,7 @@ checkoutButton.addEventListener('click', function(e) {
 
         // Initial validation on page load
         checkForm();
-
-        /// Format pesan Whatsapp ///
+/// Format pesan Whatsapp ///
 
 const formatMessage = (obj) => {
     // Parse the items from JSON string to array of objects
