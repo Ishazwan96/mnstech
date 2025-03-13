@@ -424,14 +424,10 @@ body {
 
 .about h2,
 .contact h2,
-.products h2,
 .pakej h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
-}
-.products h2 {
-  color: #fff;
 }
 
 .about h2 span,
@@ -698,7 +694,7 @@ body {
 .harga h2,
 .products h2 {
   font-size: 2.5rem;
-  color: #333;
+  color: #fff;
   font-weight: 700;
   margin-bottom: 20px;
 }
