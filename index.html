@@ -295,52 +295,46 @@
 </section>
 <!-- Slider Image End -->
   
-<!-- Products Section start -->
-<section class="products" id="products" x-data="products">
-  <h2>PRODUK<span> YANG DITAWARKAN</span></h2>
-  <p>Pesan sekarang untuk menempah waktu pemasangan</p>
-  <p>*75% deposit untuk pembayaran pendahuluan</p>
+  <!-- Products Section start -->
+  <section class="products" id="products" x-data="products">
+    <h2>PRODUK<span> YANG DITAWARKAN</span></h2>
+    <p>pesan sekarang untuk menempah waktu pemasangan</p>
+    <p>*75% deposit untuk pembayaran pendahuluan </p>
+<div class="row">
+      <template x-for="(item,index) in items" x-key="index">
 
-  <div class="row">
-    <template x-for="(item, index) in items" :key="index">
       <div class="product-card">
-        <!-- Product Image -->
         <div class="product-image">
           <img :src="`products/${item.img}`" :alt="item.name">
         </div>
-
-        <!-- Product Content -->
         <div class="product-content">
-          <h3 x-text="item.name"></h3>
-
-          <!-- Features List -->
-          <ul class="product-features">
-            <template x-for="feature in item.features" :key="feature">
-              <li x-text="feature"></li>
-            </template>
-          </ul>
-
-          <!-- Star Ratings -->
+          <h3 x-text ="item.name"></h3>
+            <template x-for="feature in item.features">
+              <h3 x-text="feature"></h3>
+              <p x-text="feature"></p>
+              <p x-text="feature"></p>
+              <p x-text="feature"></p>
+              <p x-text="feature"></p>
+              <p x-text="feature"></p>
+          </template>
           <div class="product-stars">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-regular fa-star"></i>
-          </div>
         </div>
-
-        <!-- Product Price & Button -->
-        <div class="products-price">
-          <p x-text="'RM ' + item.price"></p>
-          <p class="previous-price" x-text="'RM ' + calculatePreviousPrice(item.price)"></p>
-          <a href="#" class="add-to-cart-btn" @click.prevent="$store.cart.add(item)">Add To Cart</a>
+          </div>
+          <div class="products-price"><P x-text= "RM(item.price)"></P>
+            <p class="previous-price"x-text= "RM(calculatePreviousPrice(item.price))"></P>
+            <a href="#" class="add-to-cart-btn" @click.prevent="$store.cart.add(item)">Add To Cart
+            </a>
         </div>
       </div>
     </template>
-  </div>
-</section>
-<!-- Products Section end -->
+    </div>
+  </section>
+  <!-- Products Section end -->
 
   <!-- Contact Section start -->
   <section id="contact" class="contact">
