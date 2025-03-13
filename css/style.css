@@ -647,23 +647,7 @@ body {
   background-color: #4e4e4e;
   transform: scale(1.05);
 }
-/* Product Features */
-.product-features {
-  list-style: none;
-  padding: 0;
-  margin-top: 0.5rem;
-}
 
-.product-features li {
-  font-size: 1rem;
-  color: #555;
-  padding: 5px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.product-features li:last-child {
-  border-bottom: none;
-}
 /* Responsive Design */
 @media (max-width: 768px) {
   .products {
