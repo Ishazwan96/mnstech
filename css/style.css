@@ -1268,16 +1268,7 @@ color: var(--primary);
   padding: 6px 8px; /* Adjusted padding for smaller buttons */
 }
 .products {
-  padding: 4rem 2rem;
-}
-
-.products h2 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 2rem;
-}
+  padding: 4rem 
 
 .products p {
   text-align: center;
