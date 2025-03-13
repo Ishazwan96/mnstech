@@ -270,96 +270,141 @@ body {
   color: var(--bg);
 }
 
-/* Shopping Cart Button Styles */
+/* Shopping Cart Button */
 #shopping-cart-button {
   position: relative;
+  cursor: pointer;
 }
 
 #shopping-cart-button .quantity-badge {
-  display: inline-block;
-  padding: 0.5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
   background-color: red;
+  color: #fff;
   border-radius: 50%;
-  font-size:1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
   position: absolute;
-  top: 0;
-  right: -12px;
+  top: -5px;
+  right: -10px;
+  min-width: 20px;
+  min-height: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
+/* Shopping Cart Panel */
 .shopping-cart {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 30rem;
-  padding: 1.5rem;
-  background-color: #fff;
-  color: #333; /* Adjusted text color for better contrast */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 28rem;
+  padding: 1.8rem;
+  background: #fff;
+  color: #333;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   z-index: 1000;
   transform: translateX(100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease-in-out;
+  border-left: 2px solid #eee;
 }
 
 .shopping-cart.active {
   transform: translateX(0);
 }
 
+/* Cart Header */
+.shopping-cart h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+/* Cart Items */
 .shopping-cart .cart-item {
-  margin: 2rem 0;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #ccc; /* Lightened border color */
+  gap: 1.2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
   position: relative;
 }
 
 .shopping-cart img {
-  height: 4rem;
-  width: 4rem; /* Added width for consistent sizing */
-  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  border-radius: 10px;
   object-fit: cover;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shopping-cart .cart-item-info {
+  flex-grow: 1;
 }
 
 .shopping-cart h3 {
-  font-size:0.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
 }
 
 .shopping-cart p {
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   color: #666;
 }
 
-.shopping-cart h4 {
-  font-size: 2.5rem;
-  margin-top: -1.2rem;
-  text-align: center;
+/* Price Display */
+.shopping-cart .item-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary);
 }
 
-.shopping-cart .item-price {
-  font-size: 1.5rem;
+/* Quantity Buttons */
+.shopping-cart .cart-item .quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.shopping-cart .item-price span {
-  font-size: 1.5rem;
-}
-.shopping-cart .cart-item #add,
-.shopping-cart .cart-item #remove {
-  background-color: #010101;
+
+.shopping-cart .cart-item button {
+  background-color: var(--primary);
   color: #fff;
   font-weight: bold;
-  font-size:0.5rem;
-  padding: 8px 10px;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 0 8px;
+  transition: background 0.3s ease;
 }
 
-.shopping-cart .cart-item #add:hover,
-.shopping-cart .cart-item #remove:hover {
-  background-color: var(--primary);
+.shopping-cart .cart-item button:hover {
+  background-color: #4e4e4e;
+}
+
+/* Checkout Button */
+.checkout-btn {
+  display: block;
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background: #4e4e4e;
 }
 
 /* Checkout Form Styles */
