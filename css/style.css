@@ -536,45 +536,58 @@ body {
 
 /* Product Card */
 .product-card {
-  border: 1px solid #ddd;
-  background-color: #fff;
-  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.8rem;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   width: 100%;
-  max-width: 320px; /* Keep card width consistent */
-  border-radius: 10px;
+  max-width: 350px;
   overflow: hidden;
+  border: 1px solid #eee;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Product Image */
 .product-image {
-  padding: 1rem 0;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
 }
 
 .product-image img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
 }
 
 /* Product Content */
 .product-content {
-  margin-top: 1rem;
+  padding: 1rem 0;
 }
 
 .product-content h3 {
-  font-size: 1.5rem;
-  color: #333;
+  font-size: 1.4rem;
+  color: #222;
+  font-weight: 600;
   margin-bottom: 0.5rem;
+}
+
+.product-content p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
 }
 
 /* Star Ratings */
@@ -586,23 +599,29 @@ body {
 
 .product-stars i {
   color: var(--primary);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin: 0 3px;
 }
 
 /* Pricing */
 .products-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   margin-top: 1rem;
-  font-size: 1.5rem;
+}
+
+.products-price .current-price {
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #000;
+  color: var(--primary);
 }
 
 .products-price .previous-price {
+  font-size: 1.2rem;
   color: #999;
   text-decoration: line-through;
-  font-size: 1.2rem;
-  margin-top: 0.3rem;
 }
 
 /* Add to Cart Button */
@@ -610,16 +629,17 @@ body {
   background-color: var(--primary);
   color: #fff;
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.9rem 1.5rem;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   margin-top: 1.5rem;
 }
 
