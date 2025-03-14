@@ -58,73 +58,61 @@
       <label for="search-box"><i data-feather="search"></i></label>
     </div>
     <!-- Search Form end -->
-
-  <!-- Shopping Cart start -->
-<div class="shopping-cart" x-show="$store.cart.items.length">
-  <template x-for="(item, index) in $store.cart.items" :key="index">
-    <div class="cart-item">
-      <!-- Product Image -->
-      <img :src="`products/${item.img}`" :alt="item.name">
-
-      <!-- Item Details -->
-      <div class="item-detail">
-        <h3 x-text="item.name"></h3>
-
-        <!-- Price & Quantity Controls -->
-        <div class="item-price">
-          <span x-text="'RM ' + item.price"></span> &times;
-          <button class="quantity-btn remove" @click="$store.cart.remove(item.id)">&minus;</button>
-          <span x-text="item.quantity"></span>
-          <button class="quantity-btn add" @click="$store.cart.add(item)">&plus;</button>
-          &equals;
-          <span x-text="'RM ' + item.total"></span>
+    
+    <!-- Shopping Cart start -->
+    <div class="shopping-cart">
+      <template x-for="(item, index) in $store.cart.items" x-keys="index">
+      <div class="cart-item">
+        <img :src="`products/${item.img}`" :alt="item.name">
+        <div class="item-detail">
+          <h3 x-text = "item.name"></h3>
+          <div class="item-price">
+            <span x-text="RM(item.price)"></span> &times;
+            <button id="remove" @click =$store.cart.remove(item.id)>&minus;</button>
+            <span x-text="item.quantity"></span>
+            <button id="add" @click="$store.cart.add(item)">&plus;</button>&equals;
+            <span x-text="RM (item.total)"></span>
+          </div>
         </div>
+
       </div>
+    </template>
+    <p x-show="!$store.cart.items.length">Your Cart is Empty</p>
+    <h4 x-show="$store.cart.items.length">Total Price: <span x-text = "RM($store.cart.total)"></span></h4>
+
+    <div class="form-container" x-show="$store.cart.items.length">
+      <form action="" id="checkoutForm">
+        <input type = "hidden" name="items" x-model ="JSON.stringify($store.cart.items)">
+        <input type = "hidden" name="total" x-model ="$store.cart.total">
+
+        <h5>Customer Detail</h5>
+
+        <label for ="name">
+          <span>Nama </span>
+          <input type="text" name="name" id="name">
+        </label>
+
+        <label for ="email">
+          <span>Email </span>
+          <input type="email" name="email" id="email">
+        </label>
+
+        <label for ="phone">
+          <span>No.Tel </span>
+          <input type="number" name="phone" id="phone" autocomplete="off">
+        </label>
+
+        <label for ="location">
+          <span>Lokasi</span>
+          <input type="text" name="location" id="location">
+        </label>
+
+<button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
+      </form>
     </div>
-  </template>
-
-  <!-- Empty Cart Message -->
-  <p x-show="!$store.cart.items.length">Your Cart is Empty</p>
-
-  <!-- Total Price -->
-  <h4 x-show="$store.cart.items.length">Total Price: <span x-text="'RM ' + $store.cart.total"></span></h4>
-
-  <!-- Checkout Form -->
-  <div class="form-container" x-show="$store.cart.items.length">
-    <form id="checkoutForm">
-      <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
-      <input type="hidden" name="total" x-model="$store.cart.total">
-
-      <h5>Customer Details</h5>
-
-      <label for="name">
-        <span>Nama</span>
-        <input type="text" name="name" id="name" required>
-      </label>
-
-      <label for="email">
-        <span>Email</span>
-        <input type="email" name="email" id="email" required>
-      </label>
-
-      <label for="phone">
-        <span>No. Tel</span>
-        <input type="number" name="phone" id="phone" autocomplete="off" required>
-      </label>
-
-      <label for="location">
-        <span>Lokasi</span>
-        <input type="text" name="location" id="location" required>
-      </label>
-
-      <!-- Checkout Button -->
-      <button class="checkout-button" type="submit" id="checkout-button">Checkout</button>
-    </form>
-  </div>
-</div>
-<!-- Shopping Cart end -->
+    </div>
+    <!-- Shopping Cart end -->
   </nav>
-  <!-- Navbar end -->
 
   <!-- Hero Section start -->
   <section class="hero" id="home">  
@@ -306,46 +294,51 @@
 </section>
 <!-- Slider Image End -->
   
-  <!-- Products Section start -->
-  <section class="products" id="products" x-data="products">
-    <h2>PRODUK<span> YANG DITAWARKAN</span></h2>
-    <p>pesan sekarang untuk menempah waktu pemasangan</p>
-    <p>*75% deposit untuk pembayaran pendahuluan </p>
-<div class="row">
-      <template x-for="(item,index) in items" x-key="index">
+<!-- Products Section start -->
+<section class="products" id="products" x-data="products">
+  <h2>PRODUK<span> YANG DITAWARKAN</span></h2>
+  <p>Pesan sekarang untuk menempah waktu pemasangan</p>
+  <p class="deposit-note">*75% deposit untuk pembayaran pendahuluan</p>
 
-      <div class="product-card">
-        <div class="product-image">
-          <img :src="`products/${item.img}`" :alt="item.name">
-        </div>
-        <div class="product-content">
-          <h3 x-text ="item.name"></h3>
-            <template x-for="feature in item.features">
-              <h3 x-text="feature"></h3>
-              <p x-text="feature"></p>
-              <p x-text="feature"></p>
-              <p x-text="feature"></p>
-              <p x-text="feature"></p>
-              <p x-text="feature"></p>
-          </template>
-          <div class="product-stars">
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-        </div>
+  <div class="row">
+      <template x-for="(item, index) in items" :key="index">
+          <div class="product-card">
+              <div class="product-image">
+                  <img :src="`products/${item.img}`" :alt="item.name">
+              </div>
+
+              <div class="product-content">
+                  <h3 x-text="item.name"></h3>
+                  
+                  <ul class="product-features">
+                      <template x-for="feature in item.features">
+                          <li x-text="feature"></li>
+                      </template>
+                  </ul>
+
+                  <div class="product-stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                  </div>
+
+                  <div class="products-price">
+                      <p class="current-price" x-text="'RM ' + item.price"></p>
+                      <p class="previous-price" x-text="'RM ' + calculatePreviousPrice(item.price)"></p>
+                  </div>
+
+                  <button class="add-to-cart-btn" @click.prevent="$store.cart.add(item)">
+                      Add to Cart
+                  </button>
+              </div>
           </div>
-          <div class="products-price"><P x-text= "RM(item.price)"></P>
-            <p class="previous-price"x-text= "RM(calculatePreviousPrice(item.price))"></P>
-            <a href="#" class="add-to-cart-btn" @click.prevent="$store.cart.add(item)">Add To Cart
-            </a>
-        </div>
-      </div>
-    </template>
-    </div>
-  </section>
-  <!-- Products Section end -->
+      </template>
+  </div>
+</section>
+<!-- Products Section end -->
+
 
   <!-- Contact Section start -->
   <section id="contact" class="contact">
