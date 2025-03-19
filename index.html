@@ -58,6 +58,7 @@
       <label for="search-box"><i data-feather="search"></i></label>
     </div>
     <!-- Search Form end -->
+
 <!-- Shopping Cart -->
 <div class="shopping-cart">
   <template x-for="(item, index) in $store.cart.items" x-key="index">
@@ -121,13 +122,38 @@
         <input type="text" name="location" id="location">
       </label>
 
+      <!-- Installation Date Picker (Only Sat & Sun) -->
+      <label for="install-date">
+        <span>Installation Date (Saturday & Sunday Only)</span>
+        <input type="date" name="install-date" id="install-date" required>
+        </label>
+
       <button class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
     </form>
   </div>
 </div>
-
 </nav>
 <!-- Navbar end -->
+
+<!-- JavaScript to Restrict Date Selection -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const dateInput = document.getElementById("install-date");
+  
+    dateInput.addEventListener("input", function() {
+      let selectedDate = new Date(this.value);
+      let day = selectedDate.getDay(); // 0 = Sunday, 6 = Saturday
+  
+      if (day !== 0 && day !== 6) {
+        alert("Only Saturday and Sunday are available for installation.");
+        this.value = ""; // Reset input if invalid
+      }
+    });
+  
+    // Prevent users from selecting weekdays in the calendar UI
+    dateInput.setAttribute("onkeydown", "return false");
+  });
+  </script>
 
   <!-- Hero Section start -->
   <section class="hero" id="home">  
