@@ -29,94 +29,132 @@ document.addEventListener('alpine:init', () => {
                 features: ['4K Resolution','1 x DVR Recorder','1 x 6TB HDD','16 x Camera (Dome/Bullet)','Wiring/Installation']
              },
             { id:10,name:'Wiring/Installation', img:'db.png', price: 0,
-                features: ['Wiring Soket','Wiring Lampu','Wiring Kipas','Wiring DB','dan lain-lain']
+                features: ['Control Panel (Booster/Transfer Pump Panel)','Wiring Soket','Wiring Lampu','Wiring Kipas','Wiring DB']
              },
         ],
         
         calculatePreviousPrice(price) {
-            return Math.round(price / 0.9);
+            // Example: Previous price is 10% higher than current price
+            return Math.round(price / 0.9); // Adjust the logic as per your requirement
         },
         
     }));
+
 
     Alpine.store('cart', {
         items:[],
         total:0,
         quantity:0,
 
-        add(newItem) {
-            const cartItem = this.items.find((item)=> item.id === newItem.id);
-    
-            if (!cartItem){
-                this.items.push({...newItem, quantity: 1, total: newItem.price});
-                this.quantity++;
-                this.total += newItem.price;
+add(newItem) {
+            //check jika ada barang yang sama
 
+    const cartItem = this.items.find((item)=> item.id === newItem.id);
+
+        //Jika belum ada
+    
+    if (!cartItem){
+
+            this.items.push({...newItem, quantity: 1, total: newItem.price});
+            this.quantity++;
+            this.total +=newItem.price;
+                        
+
+                // Show thanks modal after adding item
                 const thanksModal = document.querySelector('#thanks');
                 thanksModal.style.display = 'flex';
 
+                // Close thanks modal when clicking outside it
                 window.onclick = (e) => {
                     if (e.target === thanksModal) {
                         thanksModal.style.display = 'none';
                     }
-                };
-    
-            } else {
-                this.items = this.items.map((item) => {
-                    if (item.id !== newItem.id) {
-                        return item;
-                    } else {
-                        item.quantity++;
-                        item.total = item.price * item.quantity;
-                        this.quantity++;
-                        this.total += item.price;
-                        return item;
-                    }
-                })
-            }
-        },
+                };t6
 
-        remove(id){
-            const cartItem = this.items.find((item) => item.id === id);
-    
-            if (cartItem.quantity > 1 ) {
-                this.items = this.items.map ((item) => {
-                    if (item.id !== id) {
-                        return item;
-                    } else {
-                        item.quantity--;
-                        item.total = item.price * item.quantity;
-                        this.quantity--;
-                        this.total -= item.price;
-                        return item;
-                    }
-                })
-            } else if (cartItem.quantity === 1){
-                this.items = this.items.filter ((item) => item.id !== id);
-                this.quantity--;
-                this.total -= cartItem.price;
-            }
+        }  else {
+
+        // Jika barang sudah ada, check apakah barang berbeza atau sama
+        this.items = this.items.map((item) => {
+        
+        // Jika barang berbeza
+            
+        if (item.id !== newItem.id) {
+        
+            return item;
+        
+        } else {
+        
+            //jika barang sudah ada, tambah quantity dan totalnya
+            item.quantity ++;
+            item.total = item.price * item.quantity;
+            this.quantity ++;
+            this.total += item.price;
+            return item;
         }
+        })
+    }
+        },
+remove (id){
+    // ambil item yang ingin di remove berdasar kan id
+    const cartItem = this.items.find((item) => item.id === id);
+
+    // jika item lebih dari 1
+    if (cartItem.quantity > 1 ) {
+        // 
+
+        this.items = this.items.map ((item) => {
+            // jika bukan barang yang diklik
+            if (item.id !== id) {
+                return item;
+
+            } else {
+                item.quantity --;
+                item.total =item.price * item.quantity;
+                this.quantity--;
+                this.total -= item.price;
+                return item;
+
+            }
+        })
+    } else if (cartItem.quantity === 1){
+        //jika barang tinggal 1
+        this.items = this.items.filter ((item) => item.id !==id);
+        this.quantity--;
+        this.total -= cartItem.price;
+    }
+}
     });
 });
 
+/// Form validation ///
 const checkoutButton = document.querySelector('.checkout-button');
-checkoutButton.disabled = true;
 const form = document.querySelector('#checkoutForm');
-form.addEventListener('keyup', function(){
+
+function validateForm() {
+    let allFieldsFilled = true;
+
     for (let i = 0; i < form.elements.length; i++) {
-        if (form.elements[i].value.length !== 0) {
-            checkoutButton.classList.remove('disabled');
-            checkoutButton.classList.add('disabled');
-        } else {
-            return false;
+        if (form.elements[i].value.trim() === "") {
+            allFieldsFilled = false;
+            break;
         }
     }
-    checkoutButton.disabled = false;
-    checkoutButton.classList.remove('disabled');
-});
 
-checkoutButton.addEventListener('click', function(e) {
+    checkoutButton.disabled = !allFieldsFilled;
+    checkoutButton.classList.toggle('disabled', !allFieldsFilled);
+}
+
+// Run validation on every input change
+form.addEventListener('input', validateForm);
+
+// Prevent empty checkout
+checkoutButton.addEventListener('click', function (e) {
+    if (checkoutButton.disabled) {
+        e.preventDefault();
+        alert("Please fill in all required fields.");
+        return;
+    }
+
     e.preventDefault();
     const formData = new FormData(form);
     const data = new URLSearchParams(formData);
@@ -125,13 +163,17 @@ checkoutButton.addEventListener('click', function(e) {
     window.open('http://wa.me/60136839091?text=' + encodeURIComponent(message));
 });
 
+/// Format WhatsApp Message ///
 const formatMessage = (obj) => {
     const items = JSON.parse(obj.items);
+
     let message = `*Customer Details*\n\n`;
     message += `Name: ${obj.name}\n`;
     message += `Email: ${obj.email}\n`;
     message += `No. Tel: ${obj.phone}\n`;
-    message += `Location: ${obj.location}\n\n`;
+    message += `Location: ${obj.location}\n`;
+    message += `Install Date: ${obj["install-date"]}\n\n`;
+
     message += `*Order Details*\n\n`;
 
     items.forEach((item) => {
@@ -145,6 +187,8 @@ const formatMessage = (obj) => {
     return message;
 };
 
+
+/// Convert to MYR ///
 const RM = (number) => {
     return new Intl.NumberFormat('ms-MY', {
         style: 'currency',
@@ -153,44 +197,51 @@ const RM = (number) => {
     }).format(number);
 };
 
-const hantarButton = document.getElementById('hantar-button');
-const contactForm = document.getElementById('hantarForm');
+// Form validation Hantar Form
 
-function checkForm() {
+  const hantarButton = document.getElementById('hantar-button');
+  const contactForm = document.getElementById('hantarForm');
+
+  // Function to check if all fields are filled
+  function checkForm() {
     const inputs = contactForm.querySelectorAll('input, textarea');
     let formIsValid = true;
 
     inputs.forEach(input => {
-        if (input.value.trim() === '') {
-            formIsValid = false;
-        }
+      if (input.value.trim() === '') {
+        formIsValid = false;
+      }
     });
 
+    // Enable/disable button based on form validity
     if (formIsValid) {
-        hantarButton.disabled = false;
-        hantarButton.classList.remove('disabled');
+      hantarButton.disabled = false;
+      hantarButton.classList.remove('disabled');
     } else {
-        hantarButton.disabled = true;
-        hantarButton.classList.add('disabled');
+      hantarButton.disabled = true;
+      hantarButton.classList.add('disabled');
     }
-}
+  }
 
-contactForm.addEventListener('input', checkForm);
-checkForm();
+  // Add event listeners to form inputs
+  contactForm.addEventListener('input', checkForm);
 
-function sendWhatsapp() {
+  // Initial validation on page load
+  checkForm();
+
+  function sendWhatsapp() {
     var name = document.querySelector('.name').value;
     var email = document.querySelector('.email').value;
     var phone = document.querySelector('.phone').value;
     var message = document.querySelector('.message').value;
-
+  
     var url = "https://wa.me/60136839091?text=" +
-        "Customer Details %0a%0a" +
-        "Name : " + name + "%0a" +
-        "Email : " + email + "%0a" +
-        "No.Tel : " + phone + "%0a" +
-        "Message : " + message + "%0a%0a" +
-        "Thank you!";
+      "Customer Details %0a%0a" +
+      "Name : " + name + "%0a" +
+      "Email : " + email + "%0a" +
+      "No.Tel : " + phone + "%0a" +
+      "Message : " + message + "%0a%0a" +
+      "Thank you!";
   
     window.open(url, '_blank').focus();
-}
+  }
