@@ -126,78 +126,101 @@ remove (id){
     });
 });
 
-/// Form validation ///
-const checkoutButton = document.querySelector('.checkout-button');
-checkoutButton.disabled = true;
-const form = document.querySelector('#checkoutForm');
+/// Ensure script runs after DOM is fully loaded ///
+document.addEventListener("DOMContentLoaded", function () {
+    const checkoutButton = document.querySelector('.checkout-button');
+    checkoutButton.setAttribute('disabled', 'true'); // Ensure button starts disabled
+    const form = document.querySelector('#checkoutForm');
 
-function validateForm() {
-    let allFieldsFilled = true;
+    function validateForm() {
+        let allFieldsFilled = true;
 
-    for (let i = 0; i < form.elements.length; i++) {
-        if (form.elements[i].value.trim() === "") {
-            allFieldsFilled = false;
-            break;
+        for (let i = 0; i < form.elements.length; i++) {
+            if (form.elements[i].type !== "hidden" && form.elements[i].value.trim() === "") {
+                allFieldsFilled = false;
+                break;
+            }
+        }
+
+        if (allFieldsFilled) {
+            checkoutButton.removeAttribute('disabled'); // Fix for iOS
+            checkoutButton.classList.remove('disabled');
+        } else {
+            checkoutButton.setAttribute('disabled', 'true');
+            checkoutButton.classList.add('disabled');
         }
     }
 
-    checkoutButton.disabled = !allFieldsFilled;
-    checkoutButton.classList.toggle('disabled', !allFieldsFilled);
-}
+    // Run validation on every input change
+    form.addEventListener('input', validateForm);
 
-// Run validation on every input change
-form.addEventListener('input', validateForm);
+    checkoutButton.addEventListener('click', function (e) {
+        if (checkoutButton.hasAttribute('disabled')) {
+            e.preventDefault();
+            alert("Please fill in all required fields.");
+            return;
+        }
 
-checkoutButton.addEventListener('click', function (e) {
-    if (checkoutButton.disabled) {
-        e.preventDefault();
-        alert("Please fill in all required fields.");
-        return;
-    }
+        e.preventDefault(); // Prevent default form submission
 
-    e.preventDefault(); // Prevent default form submission
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+        const objData = Object.fromEntries(data);
 
-    const formData = new FormData(form);
-    const data = new URLSearchParams(formData);
-    const objData = Object.fromEntries(data);
-    const message = formatMessage(objData);
+        // Ensure items are parsed correctly
+        try {
+            objData.items = JSON.parse(objData.items);
+        } catch (error) {
+            alert("Error processing order. Please try again.");
+            return;
+        }
 
-    window.open('http://wa.me/60136839091?text=' + encodeURIComponent(message));
-});
-
-/// Format WhatsApp Message ///
-const formatMessage = (obj) => {
-    const items = JSON.parse(obj.items);
-
-    let message = `*Customer Details*\n\n`;
-    message += `Name: ${obj.name}\n`;
-    message += `Email: ${obj.email}\n`;
-    message += `No. Tel: ${obj.phone}\n`;
-    message += `Location: ${obj.location}\n`;
-    message += `Install Date: ${obj["install-date"]}\n\n`;
-
-    message += `*Order Details*\n\n`;
-
-    items.forEach((item) => {
-        message += `${item.name} (${item.quantity} x ${RM(item.total)})\n`;
-        message += `Features: ${item.features.join(', ')}\n\n`;
+        const message = formatMessage(objData);
+        window.open('http://wa.me/60136839091?text=' + encodeURIComponent(message));
     });
 
-    message += `TOTAL: ${RM(obj.total)}\n\n`;
-    message += `Terima Kasih!`;
+    /// Format WhatsApp Message ///
+    function formatMessage(obj) {
+        let message = `*Customer Details*\n\n`;
+        message += `Name: ${obj.name}\n`;
+        message += `Email: ${obj.email}\n`;
+        message += `No. Tel: ${obj.phone}\n`;
+        message += `Location: ${obj.location}\n`;
+        message += `Install Date: ${obj["install-date"]}\n\n`;
 
-    return message;
-};
+        message += `*Order Details*\n\n`;
 
+        obj.items.forEach((item) => {
+            message += `${item.name} (${item.quantity} x ${RM(item.total)})\n`;
+            message += `Features: ${item.features ? item.features.join(', ') : "None"}\n\n`;
+        });
 
-/// Convert to MYR ///
-const RM = (number) => {
-    return new Intl.NumberFormat('ms-MY', {
-        style: 'currency',
-        currency: 'MYR',
-        minimumFractionDigits: 0,
-    }).format(number);
-};
+        message += `TOTAL: ${RM(obj.total)}\n\n`;
+        message += `Terima Kasih!`;
+
+        return message;
+    }
+
+    // Fix: Use Flatpickr for iOS date picker issue
+    flatpickr("#install-date", {
+        enable: [
+            function(date) {
+                return date.getDay() === 6 || date.getDay() === 0; // Only allow Saturday & Sunday
+            }
+        ],
+        dateFormat: "Y-m-d",
+    });
+
+    // Convert to MYR (Final Version)
+    function RM(number) {
+        return new Intl.NumberFormat('ms-MY', {
+            style: 'currency',
+            currency: 'MYR',
+            minimumFractionDigits: 2,
+        }).format(number);
+    }
+});
+
 
 // Form validation Hantar Form
 
