@@ -486,6 +486,7 @@ body {
   margin-bottom: 5px;
 }
 
+/* 🔹 Input Fields */
 .form-container input {
   width: 100%;
   padding: 12px;
@@ -495,7 +496,9 @@ body {
   transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.form-container input:focus {
+/* 🔹 Focus Effect for Inputs */
+.form-container input:focus, 
+#install-date:focus {
   border-color: var(--primary, #ff4500);
   box-shadow: 0 0 8px rgba(255, 69, 0, 0.3);
   outline: none;
@@ -519,29 +522,22 @@ body {
   box-shadow: 0 5px 10px rgba(255, 69, 0, 0.3);
 }
 
+/* 🔹 Hover Effect */
 .form-container .checkout-button:hover {
   background: #e63e00;
   transform: scale(1.05);
 }
 
+/* 🔹 Disabled Checkout Button */
+.form-container .checkout-button:disabled,
 .form-container .checkout-button.disabled {
   background-color: #aaa;
   cursor: not-allowed;
   box-shadow: none;
+  transform: none;
 }
 
-
-  .form-container input {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .form-container .checkout-button {
-    font-size: 1.2rem;
-    padding: 0.9rem;
-  }
-
-  /* 🔹 Installation Date Picker */
+/* 🔹 Installation Date Picker */
 #install-date {
   width: 100%;
   padding: 12px;
@@ -551,11 +547,6 @@ body {
   transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-#install-date:focus {
-  border-color: #ff4500;
-  box-shadow: 0 0 8px rgba(255, 69, 0, 0.3);
-  outline: none;
-}
 
 /* 🔹 Responsive Design */
 @media (max-width: 1024px) {
