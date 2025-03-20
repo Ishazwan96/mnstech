@@ -128,6 +128,7 @@ remove (id){
 
 /// Form validation ///
 const checkoutButton = document.querySelector('.checkout-button');
+checkoutButton.disabled = true;
 const form = document.querySelector('#checkoutForm');
 
 function validateForm() {
@@ -147,7 +148,6 @@ function validateForm() {
 // Run validation on every input change
 form.addEventListener('input', validateForm);
 
-// Prevent empty checkout
 checkoutButton.addEventListener('click', function (e) {
     if (checkoutButton.disabled) {
         e.preventDefault();
@@ -155,11 +155,13 @@ checkoutButton.addEventListener('click', function (e) {
         return;
     }
 
-    e.preventDefault();
+    e.preventDefault(); // Prevent default form submission
+
     const formData = new FormData(form);
     const data = new URLSearchParams(formData);
     const objData = Object.fromEntries(data);
     const message = formatMessage(objData);
+
     window.open('http://wa.me/60136839091?text=' + encodeURIComponent(message));
 });
 
