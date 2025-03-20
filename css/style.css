@@ -483,7 +483,7 @@ body {
   font-size: 1.1rem;
   font-weight: 500;
   color: #555;
-  margin-bottom: 5px;
+  text-align: center;
 }
 
 /* 🔹 Input Fields */
@@ -545,17 +545,6 @@ body {
   border: 1px solid #ccc;
   border-radius: 10px;
   transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  -webkit-appearance: none; /* Fix iOS auto-resizing */
-  appearance: none;
-}
-
-/* 🔹 Ensure all form inputs scale properly */
-.form-container input {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px !important; /* Prevent Safari zoom */
-  border: 1px solid #ccc;
-  border-radius: 10px;
   -webkit-appearance: none; /* Fix iOS auto-resizing */
   appearance: none;
 }
