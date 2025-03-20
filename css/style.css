@@ -540,11 +540,31 @@ body {
 /* 🔹 Installation Date Picker */
 #install-date {
   width: 100%;
-  padding: 12px;
-  font-size: 1.1rem;
+  padding: 14px; /* Increase padding for better touch response */
+  font-size: 16px; /* Prevent Safari zoom */
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  -webkit-appearance: none; /* Fix iOS auto-resizing */
+  appearance: none;
+}
+
+/* 🔹 Ensure all form inputs scale properly */
+.form-container input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px !important; /* Prevent Safari zoom */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  -webkit-appearance: none; /* Fix iOS auto-resizing */
+  appearance: none;
+}
+
+/* 🔹 Fix Checkout Button Scaling on iOS */
+.form-container .checkout-button {
+  font-size: 1.5rem; /* Ensure proper size on iOS */
+  padding: 1.2rem;
+  width: 100%;
 }
 
 
